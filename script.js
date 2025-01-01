@@ -68,10 +68,10 @@ fetch(secretsPath)
           const li = document.createElement('li');
           li.classList.add("raised");
           li.innerHTML = `
-        <strong>${details.date}</strong>: ${details.title} 
-        <br>Location: ${details?.location ?? defaultLocation}
-        <p>${description}</p>
-        <p>Menu: <br>${menu.map(function (item) {return titleCase(item)}).join(", ")}</p>
+        <span><strong>${details.date}</strong>: ${details.title} </span>
+        <br><span>Location: ${details?.location ?? defaultLocation}</span>
+        ${description}
+        <br><br>Menu: <br>${menu.map(function (item) {return titleCase(item)}).join(", ")}
       `;
           eventsList.appendChild(li);
         });

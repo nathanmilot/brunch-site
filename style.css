@@ -23,6 +23,8 @@ h1, h2 {
   padding: 1.5rem;
   margin: 1rem auto;
   max-width: 800px;
+  display: grid;
+  align-items: center;
   text-align: center;
 }
 
@@ -30,6 +32,7 @@ ul#events-list {
   display: grid;
   gap: 20px;
   list-style: none;
+  padding-inline-start: 0;
 }
 
 .raised {
@@ -39,7 +42,9 @@ ul#events-list {
   color: #e0e0e0;
   margin: 0.5rem auto;
   padding: 1rem;
-  max-width: 600px;
+  width: 80%;
+  display: grid;
+  align-content: center;
 }
 
 /* Buttons in Neumorphic Style */
