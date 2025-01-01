@@ -13,9 +13,11 @@ function titleCase(str) {
 const systemPrefersDark = () =>
   window?.matchMedia?.("(prefers-color-scheme:dark)")?.matches ?? false;
 
+console.log(systemPrefersDark());
+
 // Set initial theme based on system preference
 const icon = document.getElementById("toggle-icon");
-if (systemPrefersDark) {
+if (systemPrefersDark()) {
   document.body.classList.remove("light-mode");
   icon.classList.add("fa-sun");
 } else {
