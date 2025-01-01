@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   build-and-deploy:
@@ -21,9 +22,7 @@ jobs:
           echo '}' >> secrets.json
 
       - name: Build site
-        run: |
-          npm install
-          npm run build
+        run: echo "No build step needed for this project."
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
