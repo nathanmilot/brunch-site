@@ -7,14 +7,6 @@
       },
       "description": "Join us to celebrate the new year and kick off a monthly brunch at our house!",
       "menu": ["eggs", "sausage", "coffee"]
-    }, 
-    {
-      "details": {
-        "date": "2025-01-05",
-        "title": "Test"
-      },
-      "description": "Join us to celebrate the new year and kick off a monthly brunch at our house!",
-      "menu": ["eggs", "sausage", "coffee"]
     }
   ]
 }
