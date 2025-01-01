@@ -1,31 +1,29 @@
-name: Deploy to GitHub Pages
+name: Deploy Static Site
 
 on:
   push:
     branches:
-      - main
-  workflow_dispatch:  # Allows manual triggering
+      - main  # Trigger deployment on pushes to the main branch
+  workflow_dispatch:  # Allow manual triggering of the workflow
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      # Step 1: Check out the repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Inject secrets
+      # Step 2: Create the `secrets.json` file
+      - name: Create Secrets File
         run: |
-          echo '{' > secrets.json
-          echo '  "calendarUrl": "${{ secrets.CALENDAR_URL }}",' >> secrets.json
-          echo '  "defaultLocation": "${{ secrets.DEFAULT_LOCATION }}"' >> secrets.json
-          echo '}' >> secrets.json
+          echo '{ "calendarUrl": "${{ secrets.CALENDAR_URL }}", "defaultLocation": "${{ secrets.DEFAULT_LOCATION }}" }' > secrets.json
 
-      - name: Build site
-        run: echo "No build step needed for this project."
-
+      # Step 3: Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: .  # Deploy the root directory (contains your static site)
+
