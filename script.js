@@ -81,7 +81,7 @@ fetch(secretsPath)
         <span><strong>${details.date}</strong>: ${details.title} </span>
         <br><span>Location: ${details?.location ?? defaultLocation}</span>
         ${description}
-        <br><br>Menu: <br>${menu
+        <br><br>This Month's Menu: <br>${menu
           .map(function (item) {
             return titleCase(item);
           })
