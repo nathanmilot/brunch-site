@@ -75,19 +75,23 @@ fetch(secretsPath)
       .then((data) => {
         const eventsList = document.getElementById("events-list");
 
+        const dateOptions = {  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+
         data.events.forEach((event) => {
           const { details, description, menu } = event;
           const li = document.createElement("li");
           li.classList.add("raised");
           li.innerHTML = `
-        <span><strong>${details.date}</strong>: ${details.title} </span>
+        <span><strong>${new Date(Date.parse(details.date)).toDateString( dateOptions)}</strong>: ${details.title} </span>
         <br><span>Location: ${details?.location ?? defaultLocation}</span>
         ${description}
-        <br><br>This Month's Menu: <br>${menu
-          .map(function (item) {
-            return titleCase(item);
-          })
-          .join(", ")}
+        <br><br>This Month's Menu: <br>${
+          menu
+            ?.map(function (item) {
+              return titleCase(item);
+            })
+            ?.join(", ") ?? "TBD"
+        }
       `;
           eventsList.appendChild(li);
         });
