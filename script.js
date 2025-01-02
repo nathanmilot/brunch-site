@@ -75,23 +75,24 @@ fetch(secretsPath)
       .then((data) => {
         const eventsList = document.getElementById("events-list");
 
-        const dateOptions = {  weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
-
+        
         data.events.forEach((event) => {
           const { details, description, menu } = event;
+          const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
+          const formattedDate = new Intl.DateTimeFormat('en-ET', dateOptions).format(new Date(Date.parse(details.date)));
           const li = document.createElement("li");
           li.classList.add("raised");
           li.innerHTML = `
-        <span><strong>${new Date(Date.parse(details.date)).toDateString( dateOptions)}</strong>: ${details.title} </span>
-        <br><span>Location: ${details?.location ?? defaultLocation}</span>
+        <span><strong>${formattedDate}:</strong> ${details.title} </span>
+        <br><span><strong>Location:</strong> ${details?.location ?? defaultLocation}</span>
         ${description}
-        <br><br>This Month's Menu: <br>${
+        <br><br><span><strong>This Month's Menu:</strong><br>${
           menu
             ?.map(function (item) {
               return titleCase(item);
             })
             ?.join(", ") ?? "TBD"
-        }
+        }</span>
       `;
           eventsList.appendChild(li);
         });
