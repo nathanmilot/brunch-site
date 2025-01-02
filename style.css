@@ -9,7 +9,7 @@
   --light-highlight: #ffffff;
   --dark-text: #333;
 
-  --accent-color: #b8d4e3;
+  --accent-color: #7dba84;
   --link-color: lightskyblue;
   --link-visited: #6d4b8d;
   --link-hover: #ffffff;
@@ -28,6 +28,7 @@ body {
 
 h1,
 h2 {
+  color: var(--accent-color);
   text-align: center;
   font-weight: 700;
   margin-top: 1rem;
@@ -120,10 +121,10 @@ body.light-mode {
   color: var(--dark-text);
 }
 
-body.light-mode h1,
+/* body.light-mode h1,
 body.light-mode h2 {
   color: var(--dark-text);
-}
+} */
 
 body.light-mode .container {
   background: var(--light-bg);
