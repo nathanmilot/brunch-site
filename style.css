@@ -1,10 +1,27 @@
-/* Base Styles */
+:root {
+  --dark-bg: #303030;
+  --dark-shadow: #212121;
+  --dark-highlight: #484848;
+  --light-text: #e0e0e0;
+
+  --light-bg: #f5f5f5;
+  --light-shadow: #d9d9d9;
+  --light-highlight: #ffffff;
+  --dark-text: #333;
+
+  --accent-color: #b8d4e3;
+  --link-color: lightskyblue;
+  --link-visited: #6d4b8d;
+  --link-hover: #ffffff;
+  --link-active: #ff4040;
+}
+
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 1rem;
-  background-color: #303030; /* New base dark color */
-  color: #e0e0e0;
+  background-color: var(--dark-bg);
+  color: var(--light-text);
   line-height: 1.6;
   transition: background-color 0.3s, color 0.3s;
 }
@@ -16,11 +33,11 @@ h2 {
   margin-top: 1rem;
 }
 
-/* Neumorphic Container */
 .container {
-  background: #303030;
+  background: var(--dark-bg);
   border-radius: 20px;
-  box-shadow: 10px 10px 30px #212121, -10px -10px 30px #484848;
+  box-shadow: 10px 10px 30px var(--dark-shadow),
+    -10px -10px 30px var(--dark-highlight);
   padding: 1.5rem;
   margin: 1rem auto;
   max-width: 800px;
@@ -36,12 +53,12 @@ ul#events-list {
   padding-inline-start: 0;
 }
 
-/* Details Card (Updated) */
 .raised {
-  background: #303030; 
+  background: var(--dark-bg);
   border-radius: 12px;
-  box-shadow: 5px 5px 15px #212121, -5px -5px 15px #484848;
-  color: #e0e0e0;
+  box-shadow: 5px 5px 15px var(--dark-shadow),
+    -5px -5px 15px var(--dark-highlight);
+  color: var(--light-text);
   margin: 0.5rem auto;
   padding: 1rem;
   width: 80%;
@@ -49,13 +66,13 @@ ul#events-list {
   align-content: center;
 }
 
-/* Buttons in Neumorphic Style */
 button {
-  background: #303030; /* Match base dark color */
+  background: var(--dark-bg);
   border: none;
   border-radius: 12px;
-  box-shadow: 5px 5px 15px #212121, -5px -5px 15px #484848;
-  color: #e0e0e0;
+  box-shadow: 5px 5px 15px var(--dark-shadow),
+    -5px -5px 15px var(--dark-highlight);
+  color: var(--light-text);
   font-size: 1rem;
   padding: 0.75rem;
   cursor: pointer;
@@ -63,10 +80,10 @@ button {
 }
 
 button:hover {
-  box-shadow: inset 5px 5px 15px #212121, inset -5px -5px 15px #484848;
+  box-shadow: inset 5px 5px 15px var(--dark-shadow),
+    inset -5px -5px 15px var(--dark-highlight);
 }
 
-/* Iframe Styling */
 iframe {
   display: block;
   width: 100%;
@@ -75,26 +92,18 @@ iframe {
   transition: all 0.3s;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   iframe {
     height: 400px;
   }
-
-  .raised {
-    width: 100%; /* Full-width for smaller screens */
-    padding: 1rem; /* Adjust padding for compact layout */
-  }
-
-  .raised strong {
-    color: #6f8d7f; /* Highlight important text */
-    font-weight: 900;
-    font-size: large;
-
-  }
 }
 
-/* Dark Mode Toggle */
+.raised strong {
+  color: var(--accent-color);
+  font-weight: 900;
+  font-size: large;
+}
+
 .dark-mode-toggle {
   display: flex;
   justify-content: flex-end;
@@ -103,52 +112,62 @@ iframe {
 }
 
 button i {
-  font-size: 1.5rem; /* Size for sun/moon icon */
+  font-size: 1.5rem;
 }
 
-/* Light Mode Styles */
 body.light-mode {
-  background-color: #f5f5f5;
-  color: #333;
+  background-color: var(--light-bg);
+  color: var(--dark-text);
 }
 
 body.light-mode h1,
 body.light-mode h2 {
-  color: #333; /* Header color in light mode */
+  color: var(--dark-text);
 }
 
 body.light-mode .container {
-  background: #f5f5f5;
-  box-shadow: 10px 10px 30px #d9d9d9, -10px -10px 30px #ffffff;
+  background: var(--light-bg);
+  box-shadow: 10px 10px 30px var(--light-shadow),
+    -10px -10px 30px var(--light-highlight);
 }
 
 body.light-mode .raised {
-  background: #f5f5f5;
-  color: #333;
-  box-shadow: 5px 5px 15px #d9d9d9, -5px -5px 15px #ffffff;
+  background: var(--light-bg);
+  color: var(--dark-text);
+  box-shadow: 5px 5px 15px var(--light-shadow),
+    -5px -5px 15px var(--light-highlight);
 }
 
 body.light-mode button {
-  background: #f5f5f5;
-  color: #333;
-  box-shadow: 5px 5px 15px #d9d9d9, -5px -5px 15px #ffffff;
+  background: var(--light-bg);
+  color: var(--dark-text);
+  box-shadow: 5px 5px 15px var(--light-shadow),
+    -5px -5px 15px var(--light-highlight);
 }
 
 body.light-mode button:hover {
-  box-shadow: inset 5px 5px 15px #d9d9d9, inset -5px -5px 15px #ffffff;
+  box-shadow: inset 5px 5px 15px var(--light-shadow),
+    inset -5px -5px 15px var(--light-highlight);
 }
 
 body:not(.light-mode) a:link {
-  color: lightskyblue;
+  color: var(--link-color);
 }
+
 body:not(.light-mode) a:visited {
-  color: #6d4b8d;
+  color: var(--link-visited);
 }
+
 body:not(.light-mode) a:hover {
-  color: #ffffff;
+  color: var(--link-hover);
 }
+
 body:not(.light-mode) a:active {
-  color: #ff4040;
+  color: var(--link-active);
   text-decoration: none;
   font-weight: normal;
+}
+
+a {
+  text-decoration: none;
 }
