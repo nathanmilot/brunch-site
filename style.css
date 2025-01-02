@@ -9,7 +9,8 @@ body {
   transition: background-color 0.3s, color 0.3s;
 }
 
-h1, h2 {
+h1,
+h2 {
   text-align: center;
   font-weight: 700;
   margin-top: 1rem;
@@ -19,7 +20,7 @@ h1, h2 {
 .container {
   background: #303030;
   border-radius: 20px;
-  box-shadow: 10px 10px 30px #212121, -10px -10px 30px #484848; 
+  box-shadow: 10px 10px 30px #212121, -10px -10px 30px #484848;
   padding: 1.5rem;
   margin: 1rem auto;
   max-width: 800px;
@@ -35,6 +36,7 @@ ul#events-list {
   padding-inline-start: 0;
 }
 
+/* Details Card (Updated) */
 .raised {
   background: #303030; 
   border-radius: 12px;
@@ -49,7 +51,7 @@ ul#events-list {
 
 /* Buttons in Neumorphic Style */
 button {
-  background: #303030; /* Updated to match new base dark color */
+  background: #303030; /* Match base dark color */
   border: none;
   border-radius: 12px;
   box-shadow: 5px 5px 15px #212121, -5px -5px 15px #484848;
@@ -76,8 +78,19 @@ iframe {
 /* Responsive Design */
 @media (max-width: 768px) {
   iframe {
-    max-width: 100%;
     height: 400px;
+  }
+
+  .raised {
+    width: 100%; /* Full-width for smaller screens */
+    padding: 1rem; /* Adjust padding for compact layout */
+  }
+
+  .raised strong {
+    color: #6f8d7f; /* Highlight important text */
+    font-weight: 900;
+    font-size: large;
+
   }
 }
 
@@ -87,7 +100,6 @@ iframe {
   justify-content: flex-end;
   max-width: calc(800px + 3rem);
   margin: auto auto 20px auto;
-
 }
 
 button i {
@@ -105,7 +117,7 @@ body.light-mode h2 {
   color: #333; /* Header color in light mode */
 }
 
-body.light-mode  .container {
+body.light-mode .container {
   background: #f5f5f5;
   box-shadow: 10px 10px 30px #d9d9d9, -10px -10px 30px #ffffff;
 }
@@ -124,4 +136,19 @@ body.light-mode button {
 
 body.light-mode button:hover {
   box-shadow: inset 5px 5px 15px #d9d9d9, inset -5px -5px 15px #ffffff;
+}
+
+body:not(.light-mode) a:link {
+  color: lightskyblue;
+}
+body:not(.light-mode) a:visited {
+  color: #6d4b8d;
+}
+body:not(.light-mode) a:hover {
+  color: #ffffff;
+}
+body:not(.light-mode) a:active {
+  color: #ff4040;
+  text-decoration: none;
+  font-weight: normal;
 }
