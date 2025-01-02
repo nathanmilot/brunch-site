@@ -63,7 +63,9 @@ fetch(secretsPath)
     // Update Google Calendar iframe
     const calendar = document.getElementById("calendar");
     if (calendar) {
-      calendar.src = data.calendarUrl;
+      const calendarOptions =
+        "&mode=AGENDA&showPrint=0&showCalendars=0";
+      calendar.src = data.calendarUrl + calendarOptions;
     }
 
     // Update default location display
@@ -75,16 +77,25 @@ fetch(secretsPath)
       .then((data) => {
         const eventsList = document.getElementById("events-list");
 
-        
         data.events.forEach((event) => {
           const { details, description, menu } = event;
-          const dateOptions = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'};
-          const formattedDate = new Intl.DateTimeFormat('en-ET', dateOptions).format(new Date(Date.parse(details.date)));
+          const dateOptions = {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+            timeZone: "UTC",
+          };
+          const formattedDate = new Intl.DateTimeFormat(
+            "en-ET",
+            dateOptions
+          ).format(new Date(Date.parse(details.date)));
           const li = document.createElement("li");
           li.classList.add("raised");
           li.innerHTML = `
         <span><strong>${formattedDate}:</strong> ${details.title} </span>
-        <br><span><strong>Location:</strong> ${details?.location ?? defaultLocation}</span>
+        <br><span><strong>Location:</strong> ${
+          details?.location ?? defaultLocation
+        }</span>
         ${description}
         <br><br><span><strong>This Month's Menu:</strong><br>${
           menu
