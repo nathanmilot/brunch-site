@@ -42,27 +42,31 @@ function createEventCard(event) {
         </div>
       </div>      
 
-      <div class="event-card__description">
-        ${event.description}
-      </div>
-
       ${
-        event.menu &&
-        event.menu.length > 0 &&
-        `<div class="event-card__menu">
-        <div class="event-card__menu-header">
-          <i class="fa-solid fa-utensils"></i>
-          <span class="event-card__accent">This Month's Menu</span>
-        </div>
-        <div class="event-card__menu-items">
-          ${event.menu
-            .map(function (item, index) {
-              return `<span key=${index} class="menu-item">${titleCase(item)}</span>`;
-            })
-            .join("")}
-        </div >
-      </div >`
+        event?.description && event?.description.length > 0
+          ? `<div class="event-card__description">
+          ${event?.description}
+        </div>`
+          : ``
       }
+
+      ${`<div class="event-card__menu">
+          <div class="event-card__menu-header">
+            <i class="fa-solid fa-utensils"></i>
+            <span class="event-card__accent">This Month's Menu</span>
+          </div>
+          <div class="event-card__menu-items">
+            ${
+              event?.menu?.length > 0
+                ? event.menu
+                    .map(function (item, index) {
+                      return `<span key=${index} class="menu-item">${titleCase(item)}</span>`;
+                    })
+                    .join("")
+                : `<span class="menu-item">TBD</span>`
+            } 
+          </div >
+        </div >`}
     </div > `;
 }
 
