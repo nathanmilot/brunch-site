@@ -1,0 +1,22 @@
+.calendar-frame {
+    display: block;
+    width: 100%;
+    height: 600px;
+    border-radius: 30px !important;
+    transition: all 0.3s;
+    background: var(--dark-bg);
+    box-shadow: 5px 5px 15px var(--dark-shadow),
+      -5px -5px 15px var(--dark-highlight);
+  }
+  
+  .light-mode .calendar-frame {
+    background: var(--light-bg);
+    box-shadow: 5px 5px 15px var(--light-shadow),
+      -5px -5px 15px var(--light-highlight);
+  }
+  
+  @media (max-width: 768px) {
+    .calendar-frame {
+      height: 400px;
+    }
+  }

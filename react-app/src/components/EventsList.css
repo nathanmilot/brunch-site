@@ -1,0 +1,13 @@
+.events-list {
+    display: grid;
+    gap: 2rem;
+    padding: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .events-list {
+        padding: 0.5rem;
+    }
+}

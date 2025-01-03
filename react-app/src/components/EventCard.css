@@ -1,0 +1,117 @@
+.event-card {
+    background: var(--dark-bg);
+    border-radius: 16px;
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        5px 5px 15px var(--dark-shadow),
+        -5px -5px 15px var(--dark-highlight);
+    margin-bottom: 2rem;
+}
+
+.event-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.event-card__title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    flex: 1;
+    text-align: left;
+}
+
+.event-card__date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.event-card__location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--light-text);
+    font-size: 0.95rem;
+}
+
+.event-card__description {
+    margin: 1rem 0;
+    line-height: 1.6;
+    color: var(--light-text);
+}
+
+.event-card__menu {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--dark-highlight);
+}
+
+.event-card__menu-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.event-card__menu-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.menu-item {
+    background: var(--dark-highlight);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--light-text);
+}
+
+/* Light mode styles */
+.light-mode .event-card {
+    background: var(--light-bg);
+    box-shadow:
+        5px 5px 15px var(--light-shadow),
+        -5px -5px 15px var(--light-highlight);
+}
+
+.light-mode .event-card:hover {
+    box-shadow:
+        8px 8px 20px var(--light-shadow),
+        -8px -8px 20px var(--light-highlight);
+}
+
+.light-mode .event-card__location,
+.light-mode .event-card__description {
+    color: var(--dark-text);
+}
+
+.light-mode .menu-item {
+    background: var(--light-highlight);
+    color: var(--dark-text);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .event-card__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .event-card__title {
+        font-size: 1.25rem;
+    }
+}

@@ -1,0 +1,143 @@
+:root {
+  --dark-bg: #303030;
+  --dark-shadow: #212121;
+  --dark-highlight: #484848;
+  --light-text: #e0e0e0;
+
+  --light-bg: #f5f5f5;
+  --light-shadow: #d9d9d9;
+  --light-highlight: #ffffff;
+  --dark-text: #333;
+
+  --accent-color: #7dba84;
+  --link-color: lightskyblue;
+  --link-visited: var(--accent-color);
+  --link-hover: #030303;
+  --link-active: #ff4040;
+}
+
+.app {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 1rem;
+  background-color: var(--dark-bg);
+  color: var(--light-text);
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+  min-height: 100vh;
+}
+
+h1 {
+  color: var(--accent-color);
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.container {
+  background: var(--dark-bg);
+  border-radius: 20px;
+  box-shadow: 10px 10px 30px var(--dark-shadow),
+    -10px -10px 30px var(--dark-highlight);
+  padding: 1.5rem;
+  margin: 1rem auto 2rem auto;
+  max-width: 800px;
+  display: grid;
+  align-items: center;
+  text-align: center;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  justify-content: flex-end;
+  max-width: calc(800px + 3rem);
+  margin: auto auto 20px auto;
+}
+
+.dark-mode-toggle button {
+  background: var(--dark-bg);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 5px 5px 15px var(--dark-shadow),
+    -5px -5px 15px var(--dark-highlight);
+  color: var(--light-text);
+  font-size: 1rem;
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dark-mode-toggle button:hover {
+  box-shadow: inset 5px 5px 15px var(--dark-shadow),
+    inset -5px -5px 15px var(--dark-highlight);
+}
+
+/* Light mode styles */
+.app.light-mode {
+  background-color: var(--light-bg);
+  color: var(--dark-text);
+}
+
+.light-mode .container {
+  background: var(--light-bg);
+  box-shadow: 10px 10px 30px var(--light-shadow),
+    -10px -10px 30px var(--light-highlight);
+}
+
+.light-mode .dark-mode-toggle button {
+  background: var(--light-bg);
+  color: var(--dark-text);
+  box-shadow: 5px 5px 15px var(--light-shadow),
+    -5px -5px 15px var(--light-highlight);
+}
+
+.light-mode .dark-mode-toggle button:hover {
+  box-shadow: inset 5px 5px 15px var(--light-shadow),
+    inset -5px -5px 15px var(--light-highlight);
+}
+
+/* Link styles */
+.app:not(.light-mode) a:link {
+  color: var(--link-color);
+}
+
+.app:not(.light-mode) a:visited {
+  color: var(--link-visited);
+  filter: invert(100%);
+}
+
+a:visited {
+  color: var(--link-visited);
+  filter: invert(100%);
+}
+
+.app:not(.light-mode) a:hover {
+  color: var(--link-hover);
+}
+
+a:hover {
+  color: var(--link-hover);
+  filter: invert(100%);
+}
+
+.app:not(.light-mode) a:active {
+  color: var(--link-active);
+  text-decoration: none;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+    margin: 1rem 1rem 3rem;
+    padding: 1rem;
+  }
+
+  .dark-mode-toggle {
+    margin: 0 1rem 1rem;
+  }
+}
