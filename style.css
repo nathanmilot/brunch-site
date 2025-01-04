@@ -216,6 +216,8 @@ a:active {
 .event-card__description {
   margin: 1rem 0;
   line-height: 1.6;
+  white-space: pre-wrap;
+  padding: 1rem;
 }
 
 .event-card__menu {
@@ -256,7 +258,8 @@ body:not(.light-mode) .event-card__accent {
   padding: 0.4rem 0.8rem;
   border-radius: 20px;
   font-size: 0.9rem;
-  width: min-content
+  width: fit-content;
+  height: min-content;
 }
 
 /* Light mode styles */
