@@ -44,9 +44,7 @@ function createEventCard(event) {
 
       ${
         event?.description && event?.description.length > 0
-          ? `<div class="event-card__description">
-          ${event?.description}
-        </div>`
+          ? `<div class="event-card__description">${event?.description}</div>`
           : ``
       }
 
