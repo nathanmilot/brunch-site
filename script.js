@@ -24,6 +24,8 @@ function createEventCard(event) {
     timeZone: "America/New_York",
   }).format(eventDateTime);
 
+  const rsvpLink=`https://docs.google.com/forms/d/e/1FAIpQLSdVdWo2GT9l9NopHPvBdGQlBh9tvb8r5W4Ss9lRrkQU79TFWg/viewform?usp=pp_url&entry.1280776439=${event.details.date.split("T")[0]}`;
+
   return `<div class="event-card">
       <div class="event-card__header">
         <div>  
@@ -47,6 +49,8 @@ function createEventCard(event) {
           ? `<div class="event-card__description">${event?.description}</div>`
           : ``
       }
+
+      <a class="rsvp" type="button" href='${rsvpLink}' target="-blank">RSVP</a>
 
       ${`<div class="event-card__menu">
           <div class="event-card__menu-header">
