@@ -26,4 +26,5 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .  # Deploy the root directory (contains your static site)
+          exclude_assets: secrets.json
 
