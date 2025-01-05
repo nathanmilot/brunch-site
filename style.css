@@ -103,6 +103,8 @@ button,
   padding-left: 3rem;
   padding-right: 3rem;
   font-weight: bolder;
+  width: fit-content;
+  align-self: center;
 }
 
 button:hover,
@@ -150,7 +152,7 @@ body.light-mode .raised {
 }
 
 body.light-mode button,
-body.light-mode .rsvp{
+body.light-mode .rsvp {
   background: var(--light-bg);
   box-shadow: 5px 5px 15px var(--light-shadow),
     -5px -5px 15px var(--light-highlight);
@@ -162,7 +164,7 @@ body.light-mode .rsvp:hover {
     inset -5px -5px 15px var(--light-highlight);
 }
 
-body.light-mode .rsvp{
+body.light-mode .rsvp {
   color: var(--dark-text);
 }
 
@@ -175,9 +177,7 @@ body:not(.light-mode) a:not(.rsvp):link {
   color: var(--link-color);
 }
 
-
-body:not(.light-mode) a:not(.rsvp):visited
- {
+body:not(.light-mode) a:not(.rsvp):visited {
   color: var(--link-visited);
   filter: invert(100%);
 }
@@ -279,6 +279,11 @@ body:not(.light-mode) .event-card__accent {
   height: min-content;
 }
 
+.event-card {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Light mode styles */
 body.light-mode .event-card {
   background: var(--light-bg);
@@ -290,6 +295,10 @@ body.light-mode .menu-item {
 
 /* Responsive styles */
 @media (max-width: 768px) {
+  .event-card {
+    gap: 2rem;
+  }
+
   .event-card__header {
     flex-direction: column;
     align-items: flex-start;
