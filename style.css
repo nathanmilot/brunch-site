@@ -171,24 +171,26 @@ a {
   text-decoration: none;
 }
 
-body:not(.light-mode) a:link {
+body:not(.light-mode) a:not(.rsvp):link {
   color: var(--link-color);
 }
 
-body:not(.light-mode) a:visited {
+
+body:not(.light-mode) a:not(.rsvp):visited
+ {
   color: var(--link-visited);
   filter: invert(100%);
 }
 
-body:not(.light-mode) a:hover {
+body:not(.light-mode) a:not(.rsvp):hover {
   color: var(--link-hover);
 }
 
-a:hover {
+a:not(.rsvp):hover {
   color: var(--link-hover);
 }
 
-a:active {
+a:not(.rsvp):active {
   color: var(--link-active);
 }
 
