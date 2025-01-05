@@ -85,7 +85,8 @@ ul#events-list {
   align-content: center;
 }
 
-button {
+button,
+.rsvp {
   background: var(--dark-bg);
   border: none;
   border-radius: 12px;
@@ -97,7 +98,15 @@ button {
   transition: all 0.3s;
 }
 
-button:hover {
+.rsvp {
+  color: var(--accent-text);
+  padding-left: 3rem;
+  padding-right: 3rem;
+  font-weight: bolder;
+}
+
+button:hover,
+.rsvp:hover {
   box-shadow: inset 5px 5px 15px var(--dark-shadow),
     inset -5px -5px 15px var(--dark-highlight);
 }
@@ -140,15 +149,21 @@ body.light-mode .raised {
     -5px -5px 15px var(--light-highlight);
 }
 
-body.light-mode button {
+body.light-mode button,
+body.light-mode .rsvp{
   background: var(--light-bg);
   box-shadow: 5px 5px 15px var(--light-shadow),
     -5px -5px 15px var(--light-highlight);
 }
 
-body.light-mode button:hover {
+body.light-mode button:hover,
+body.light-mode .rsvp:hover {
   box-shadow: inset 5px 5px 15px var(--light-shadow),
     inset -5px -5px 15px var(--light-highlight);
+}
+
+body.light-mode .rsvp{
+  color: var(--dark-text);
 }
 
 /* Link styles */
