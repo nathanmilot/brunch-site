@@ -123,7 +123,7 @@ fetch(secretsPath)
     // Update Google Calendar iframe
     const calendar = document.getElementById("calendar");
     if (calendar) {
-      const calendarOptions = "&mode=AGENDA&showPrint=0&showCalendars=0";
+      const calendarOptions = "&showPrint=0&showCalendars=0&showTz=0&showTitle=0&mode=AGENDA&hl=en&";
       calendar.src = data.calendarUrl + calendarOptions;
     }
 

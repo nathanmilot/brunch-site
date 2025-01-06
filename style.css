@@ -231,21 +231,17 @@ a:not(.rsvp):active {
 }
 
 .event-card__description {
-  margin: 1rem 0;
   line-height: 1.6;
   white-space: pre-wrap;
   padding: 1rem;
 }
 
 .event-card__menu {
-  margin-top: 1.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid var(--dark-highlight);
 }
 
 body.light-mode .event-card__menu {
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
   border-top: 1px solid var(--light-shadow);
 }
 
@@ -281,6 +277,7 @@ body:not(.light-mode) .event-card__accent {
 
 .event-card {
   display: flex;
+  gap: 1.5rem;
   flex-direction: column;
 }
 
