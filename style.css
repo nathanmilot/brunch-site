@@ -72,39 +72,82 @@ body.light-mode .fas {
   display: grid;
   align-items: center;
   text-align: center;
-  flex-basis: 100%;
+}
+
+.masked-overflow{
+  max-height: 75vh;
   overflow-y: auto;
+
+  /* scroll bar width, for use in mask calculations */
+  --scrollbar-width: 25px;
+
+  /* mask fade distance, for use in mask calculations */
+  --mask-height: 1em;
+  
+  /* The content mask is a linear gradient from top to bottom */
+  --mask-image-content: linear-gradient(
+    to bottom, transparent,
+    black var(--mask-height),
+    black calc(100% - var(--mask-height)),
+    transparent
+  );
+
+  --mask-size-content: calc(100% - var(--scrollbar-width)) 100%;
+
+  /* The scrollbar mask is a black pixel */
+  --mask-image-scrollbar: linear-gradient(black, black);
+
+  --mask-size-scrollbar: var(--scrollbar-width) 100%;
+
+  /* Apply the mask image and mask size variables */
+  mask-image: var(--mask-image-content), var(--mask-image-scrollbar);
+  mask-size: var(--mask-size-content), var(--mask-size-scrollbar);
+
+  mask-position: 0 0, 100% 0;
+
+  /* We don't repeat our mask images */
+  mask-repeat: no-repeat, no-repeat;
 }
 
 /* width */
-.container::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 25px;
 }
 
 /* Track */
-.container::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   visibility: hidden;
 }
 
 /* Handle */
-.container::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: var(--accent-text);
   border-radius: 50px;
   background-clip: content-box;
-  border: solid transparent 10px;
+  border: solid transparent 7px;
 }
 
-.container::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background: var(--link-hover);
+  border-radius: 50px;
+  background-clip: content-box;
+  border: solid transparent 7px;
 }
 
-body.light-mode .container::-webkit-scrollbar-thumb {
+body.light-mode::-webkit-scrollbar-thumb,
+body.light-mode ::-webkit-scrollbar-thumb {
   background: var(--dark-text);
-  border: solid transparent 10px;
+  border-radius: 50px;
+  background-clip: content-box;
+  border: solid transparent 7px;
 }
 
-body.light-mode .container::-webkit-scrollbar-thumb:hover {
+body.light-mode::-webkit-scrollbar-thumb:hover,
+body.light-mode ::-webkit-scrollbar-thumb:hover {
   background: var(--mid-shadow);
+  border-radius: 50px;
+  background-clip: content-box;
+  border: solid transparent 7px;
 }
 
 ul#events-list {
@@ -158,7 +201,7 @@ button:hover,
 iframe {
   display: block;
   width: 100%;
-  height: 600px;
+  height: 500px;
   border-radius: 30px !important;
   transition: all 0.3s;
 }
