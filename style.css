@@ -75,8 +75,11 @@ body.light-mode .fas {
 }
 
 .masked-overflow{
-  max-height: 75vh;
+  max-height: 65vh;
   overflow-y: auto;
+  padding-top: 1rem;
+  margin-right: -25px;
+
 
   /* scroll bar width, for use in mask calculations */
   --scrollbar-width: 25px;
