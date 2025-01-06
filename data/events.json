@@ -2,46 +2,77 @@
   "events": [
     {
       "details": {
-        "date": "2025-01-12T10:00",
+        "date": "2025-01-26T10:00",
         "title": "First Monthly Brunch"
       },
       "description": "We're starting the year off with a new tradition! Join us for our first brunch potluck.\n\nWe'll provide the main fare, but feel free to bring your favorite brunch dish to share. Let us know if you have any dietary needs. We can't wait to see you!",
       "menu": ["eggs", "breakfast sausage", "coffee"]
-    }
-    ,
+    },
     {
       "details": {
-        "date": "2025-02-02T10:00",
+        "date": "2025-02-23T10:00",
         "title": "February Monthly Brunch"
       }
-    }
-    ,
+    },
     {
       "details": {
-        "date": "2025-03-02T10:00",
+        "date": "2025-03-30T10:00",
         "title": "March Monthly Brunch"
       }
-    }
-    ,
+    },
     {
       "details": {
-        "date": "2025-04-06T10:00",
+        "date": "2025-04-27T10:00",
         "title": "April Monthly Brunch"
       }
-    }
-    ,
+    },
     {
       "details": {
-        "date": "2025-05-04T10:00",
+        "date": "2025-05-25T10:00",
         "title": "May Monthly Brunch"
       }
-    }
-    ,
+    },
     {
       "details": {
-        "date": "2025-06-01T10:00",
+        "date": "2025-06-29T10:00",
         "title": "June Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2025-07-27T10:00",
+        "title": "July Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2025-08-31T10:00",
+        "title": "August Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2025-09-28T10:00",
+        "title": "September Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2025-10-26T10:00",
+        "title": "October Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2025-11-30T10:00",
+        "title": "November Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2025-12-28T10:00",
+        "title": "December Monthly Brunch"
       }
     }
   ]
-} 
+}

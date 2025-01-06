@@ -7,6 +7,8 @@
   --dark-shadow: #212121;
   --dark-highlight: #484848;
 
+  --mid-shadow: #636363;
+
   --light-bg: #f5f5f5;
   --light-shadow: #d9d9d9;
   --light-highlight: #ffffff;
@@ -52,6 +54,11 @@ body.light-mode .fas {
   color: var(--dark-text);
 }
 
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   background: var(--dark-bg);
   border-radius: 20px;
@@ -59,10 +66,45 @@ body.light-mode .fas {
     -10px -10px 30px var(--dark-highlight);
   padding: 1.5rem;
   margin: 1rem auto 3.5rem;
+  width: -webkit-fill-available;
   max-width: 800px;
+  max-height: 75vh;
   display: grid;
   align-items: center;
   text-align: center;
+  flex-basis: 100%;
+  overflow-y: auto;
+}
+
+/* width */
+.container::-webkit-scrollbar {
+  width: 25px;
+}
+
+/* Track */
+.container::-webkit-scrollbar-track {
+  visibility: hidden;
+}
+
+/* Handle */
+.container::-webkit-scrollbar-thumb {
+  background: var(--accent-text);
+  border-radius: 50px;
+  background-clip: content-box;
+  border: solid transparent 10px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background: var(--link-hover);
+}
+
+body.light-mode .container::-webkit-scrollbar-thumb {
+  background: var(--dark-text);
+  border: solid transparent 10px;
+}
+
+body.light-mode .container::-webkit-scrollbar-thumb:hover {
+  background: var(--mid-shadow);
 }
 
 ul#events-list {
