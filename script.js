@@ -13,7 +13,6 @@ function createEventCard(event) {
   var otherClass = "";
   const today = new Date();
   const eventDateTime = new Date(event.details.date);
-  console.log(today.getMonth(), eventDateTime.getMonth(), foundCurrent);
   if (
     (today.getMonth() == eventDateTime.getMonth() &&
       today.getDate() <= eventDateTime.getDate()) ||
