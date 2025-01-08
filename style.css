@@ -53,6 +53,7 @@ body.light-mode h2 {
 
 .fas {
   color: var(--light-text);
+  user-select: none;
 }
 
 body.light-mode .fas {
