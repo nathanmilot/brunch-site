@@ -1,4 +1,5 @@
 var defaultLocation = "";
+var foundCurrent = false;
 
 function titleCase(str) {
   return str
@@ -9,7 +10,25 @@ function titleCase(str) {
 }
 
 function createEventCard(event) {
+  var otherClass = "";
+  const today = new Date();
   const eventDateTime = new Date(event.details.date);
+  console.log(today.getMonth(), eventDateTime.getMonth(), foundCurrent);
+  if (
+    (today.getMonth() == eventDateTime.getMonth() &&
+      today.getDate() <= eventDateTime.getDate()) ||
+    (today.getMonth() == eventDateTime.getMonth() - 1 && !foundCurrent)
+  ) {
+    otherClass = "current";
+    foundCurrent = true;
+  } else if (
+    today.getMonth() > eventDateTime.getMonth() ||
+    (today.getMonth() == eventDateTime.getMonth() &&
+      today.getDate() > eventDateTime.getDate())
+  ) {
+    otherClass = "past";
+  }
+
   const formattedDate = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
     month: "long",
@@ -24,9 +43,11 @@ function createEventCard(event) {
     timeZone: "America/New_York",
   }).format(eventDateTime);
 
-  const rsvpLink=`https://docs.google.com/forms/d/e/1FAIpQLSdVdWo2GT9l9NopHPvBdGQlBh9tvb8r5W4Ss9lRrkQU79TFWg/viewform?usp=pp_url&entry.1280776439=${event.details.date.split("T")[0]}`;
+  const rsvpLink = `https://docs.google.com/forms/d/e/1FAIpQLSdVdWo2GT9l9NopHPvBdGQlBh9tvb8r5W4Ss9lRrkQU79TFWg/viewform?usp=pp_url&entry.1280776439=${
+    event.details.date.split("T")[0]
+  }`;
 
-  return `<div class="event-card">
+  return `<div class="event-card${otherClass ? " " + otherClass : ""}">
       <div class="event-card__header">
         <div>  
           <h2 class="event-card__title">${event.details.title}</h2>
@@ -123,7 +144,8 @@ fetch(secretsPath)
     // Update Google Calendar iframe
     const calendar = document.getElementById("calendar");
     if (calendar) {
-      const calendarOptions = "&showPrint=0&showCalendars=0&showTz=0&showTitle=0&mode=AGENDA&hl=en&";
+      const calendarOptions =
+        "&showPrint=0&showCalendars=0&showTz=0&showTitle=0&mode=AGENDA&hl=en&";
       calendar.src = data.calendarUrl + calendarOptions;
     }
 
