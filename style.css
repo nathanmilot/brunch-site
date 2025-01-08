@@ -198,6 +198,7 @@ button,
   font-weight: bolder;
   width: fit-content;
   align-self: center;
+  margin: 0.5rem auto 1rem auto;
 }
 
 button:hover,
@@ -324,7 +325,7 @@ a:not(.rsvp):active {
 }
 
 .event-card__description {
-  line-height: 1.6;
+  line-height: 1.25;
   white-space: pre-wrap;
   padding: 1rem;
 }
@@ -332,6 +333,11 @@ a:not(.rsvp):active {
 .event-card__menu {
   padding-top: 1.5rem;
   border-top: 1px solid var(--dark-highlight);
+}
+
+body:not(.light-mode) .raised:has(.current) .event-card__menu {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--dark-bg);
 }
 
 body.light-mode .event-card__menu {
@@ -370,11 +376,12 @@ body:not(.light-mode) .event-card__accent {
 
 .event-card {
   display: flex;
-  gap: 1.5rem;
+  gap: 0.5rem;
   flex-direction: column;
+  padding: 0.5rem;
 }
 
-.raised:has(.past){
+.raised:has(.past) {
   display: none;
 }
 
@@ -392,33 +399,16 @@ body.light-mode .raised:has(.current) .rsvp {
   background: var(--accent-color);
 }
 
-body.light-mode .raised:has(.current), body.light-mode .raised:has(.current) .rsvp {
-  box-shadow:  5px 5px 15px var(--accent-shadow),  -5px -5px 15px var(--accent-highlight);
+body.light-mode .raised:has(.current),
+body.light-mode .raised:has(.current) .rsvp {
+  box-shadow: 5px 5px 15px var(--accent-shadow),
+    -5px -5px 15px var(--accent-highlight);
 }
 
 body.light-mode .raised:has(.current) .rsvp:hover {
-  box-shadow: inset 5px 5px 15px var(--accent-shadow), inset -5px -5px 15px var(--accent-highlight);
+  box-shadow: inset 5px 5px 15px var(--accent-shadow),
+    inset -5px -5px 15px var(--accent-highlight);
 }
-
-
-/* .raised:not(.raised:has(.current)),
-.raised:not(.raised:has(.current)) .rsvp {
-  background: var(--dark-highlight);
-}
-
-body.light-mode .raised:not(.raised:has(.current)),
-body.light-mode .raised:not(.raised:has(.current)) .rsvp {
-  background: var(--mid-shadow);
-} */
-
-/* Light mode styles */
-/* body.light-mode .event-card {
-  background: var(--light-bg);
-} */
-
-/* body.light-mode .raised:has(.current) {
-  background: var(--light-current);
-} */
 
 body.light-mode .menu-item {
   background: var(--light-highlight);
@@ -428,6 +418,7 @@ body.light-mode .menu-item {
 @media (max-width: 768px) {
   .event-card {
     gap: 2rem;
+    padding: 0.5rem;
   }
 
   .event-card__header {
@@ -443,6 +434,10 @@ body.light-mode .menu-item {
     flex-direction: column;
     align-items: center;
   }
+
+  /* .raised {
+    width: calc(100% - 5rem);
+  } */
 
   .menu-item {
     width: 75%;
