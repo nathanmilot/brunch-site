@@ -3,20 +3,18 @@
   --dark-text: #333;
 
   --accent-color: #7dba84;
-  --accent-shadow: hsl(127, 11%, 41%);
-  --accent-highlight: hsl(127, 51%, 81%);
+  --accent-shadow: #5d7460;
+  --accent-highlight: #b6e7bc;
 
   --dark-bg: #303030;
   --dark-shadow: #212121;
   --dark-highlight: #484848;
-  /* --dark-current: hsl(0, 0%, 16%); */
 
   --mid-shadow: #636363;
 
   --light-bg: #f6f3f3;
   --light-shadow: #d9d9d9;
   --light-highlight: #ffffff;
-  /* --light-current:hsl(0, 10%, 98%); */
 
   --link-color: lightskyblue;
   --link-visited: var(--accent-color);
