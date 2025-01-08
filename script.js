@@ -14,13 +14,17 @@ function createEventCard(event) {
   const today = new Date();
   const eventDateTime = new Date(event.details.date);
   if (
-    (today.getMonth() == eventDateTime.getMonth() &&
+    (today.getFullYear() <= eventDateTime.getFullYear() &&
+      today.getMonth() == eventDateTime.getMonth() &&
       today.getDate() <= eventDateTime.getDate()) ||
-    (today.getMonth() == eventDateTime.getMonth() - 1 && !foundCurrent)
+    (today.getFullYear() <= eventDateTime.getFullYear() &&
+      today.getMonth() < eventDateTime.getMonth() &&
+      !foundCurrent)
   ) {
     otherClass = "current";
     foundCurrent = true;
   } else if (
+    today.getFullYear() > eventDateTime.getFullYear() ||
     today.getMonth() > eventDateTime.getMonth() ||
     (today.getMonth() == eventDateTime.getMonth() &&
       today.getDate() > eventDateTime.getDate())
