@@ -364,6 +364,10 @@ body:not(.light-mode) .event-card__accent {
   gap: 0.5rem;
 }
 
+.event-card_rsvp {
+  margin: 8px auto 16px auto;
+}
+
 .menu-item {
   background: var(--dark-highlight);
   padding: 0.4rem 0.8rem;

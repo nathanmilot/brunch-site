@@ -1,5 +1,6 @@
 var defaultLocation = "";
 var foundCurrent = false;
+var rsvpData;
 
 function titleCase(str) {
   return str
@@ -7,6 +8,44 @@ function titleCase(str) {
     .split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
+}
+
+function createMenuSection(event) {
+  return `<div class="event-card__menu">
+    <div class="event-card__menu-header">
+      <i class="fa-solid fa-utensils"></i>
+      <span class="event-card__accent">This Month's Menu</span>
+    </div>
+    <div class="event-card__menu-items">
+      ${
+        event?.menu?.length > 0
+          ? event.menu
+              .map(function (item, index) {
+                return `<span key=${index} class="menu-item">${titleCase(item)}</span>`;
+              })
+              .join("")
+          : `<span class="menu-item">TBD</span>`
+      } 
+    </div >
+  </div >`;
+}
+
+function createRSVPSection(rsvpLink, date) {
+  const [year, month, day] = date.toString().split("T")[0].split("-");
+  const formattedDate = `${parseInt(month)}/${parseInt(day)}/${year}`;
+  const rsvpCount = rsvpData?.[formattedDate] ?? 0;
+
+  return `<a class="rsvp" type="button" href='${rsvpLink}' target="_blank">RSVP</a>
+    <div class="event-card_rsvp" >
+    ${
+      rsvpCount > 0
+        ? `<i class="fa-solid fa-user-check"></i>
+      <span class="event-card__accent">` +
+          rsvpCount +
+          ` people RSVP'd</span>`
+        : ""
+    }
+    </div>`;
 }
 
 function createEventCard(event) {
@@ -74,26 +113,24 @@ function createEventCard(event) {
           : ``
       }
 
-      <a class="rsvp" type="button" href='${rsvpLink}' target="-blank">RSVP</a>
+      ${createRSVPSection(rsvpLink, event.details.date)}
 
-      ${`<div class="event-card__menu">
-          <div class="event-card__menu-header">
-            <i class="fa-solid fa-utensils"></i>
-            <span class="event-card__accent">This Month's Menu</span>
-          </div>
-          <div class="event-card__menu-items">
-            ${
-              event?.menu?.length > 0
-                ? event.menu
-                    .map(function (item, index) {
-                      return `<span key=${index} class="menu-item">${titleCase(item)}</span>`;
-                    })
-                    .join("")
-                : `<span class="menu-item">TBD</span>`
-            } 
-          </div >
-        </div >`}
+      ${createMenuSection(event)}
     </div > `;
+}
+
+function getRSVPData() {
+  return fetch(
+    "https://script.google.com/macros/s/AKfycbwwa5Fdw6lV82nw2gnhc7R8ms4x3-KlGdl1QcWcKV_y353XqHaVD8kVuH0jCv6O31DA/exec"
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("RSVP'd:", data);
+      rsvpData = data; // store globally
+    })
+    .catch((err) => {
+      console.error("Error fetching RSVP data:", err);
+    });
 }
 
 const systemPrefersDark = () =>
@@ -156,20 +193,22 @@ fetch(secretsPath)
     defaultLocation = decodeURIComponent(data.defaultLocation);
   })
   .then(() => {
-    fetch("./data/events.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const eventsList = document.getElementById("events-list");
+    return getRSVPData(); // fetch RSVP data first
+  })
+  .then(() => {
+    return fetch("./data/events.json");
+  })
+  .then((response) => response.json())
+  .then((data) => {
+    const eventsList = document.getElementById("events-list");
 
-        data.events.forEach((event) => {
-          const li = document.createElement("li");
-          li.classList.add("raised");
-          li.innerHTML = createEventCard(event);
-          eventsList.appendChild(li);
-        });
-      })
-      .catch((error) => console.error("Error loading JSON:", error));
+    data.events.forEach((event) => {
+      const li = document.createElement("li");
+      li.classList.add("raised");
+      li.innerHTML = createEventCard(event);
+      eventsList.appendChild(li);
+    });
   })
   .catch((error) => {
-    console.error("Error loading secrets:", error);
+    console.error("Error loading events or RSVP data:", error);
   });
