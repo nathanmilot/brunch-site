@@ -119,18 +119,16 @@ function createEventCard(event) {
     </div > `;
 }
 
-function getRSVPData() {
-  return fetch(
-    "https://script.google.com/macros/s/AKfycbwwa5Fdw6lV82nw2gnhc7R8ms4x3-KlGdl1QcWcKV_y353XqHaVD8kVuH0jCv6O31DA/exec"
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      console.log("RSVP'd:", data);
-      rsvpData = data; // store globally
-    })
-    .catch((err) => {
-      console.error("Error fetching RSVP data:", err);
-    });
+async function getRSVPData() {
+  try {
+    const res = await fetch(
+      "https://script.google.com/macros/s/AKfycbwwa5Fdw6lV82nw2gnhc7R8ms4x3-KlGdl1QcWcKV_y353XqHaVD8kVuH0jCv6O31DA/exec"
+    );
+    const data = await res.json();
+    rsvpData = data;
+  } catch (err) {
+    console.error("Error fetching RSVP data:", err);
+  }
 }
 
 const systemPrefersDark = () =>
