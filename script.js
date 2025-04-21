@@ -36,16 +36,16 @@ function createRSVPSection(rsvpLink, date) {
   const rsvpCount = rsvpData?.[formattedDate] ?? 0;
 
   return `<a class="rsvp" type="button" href='${rsvpLink}' target="_blank">RSVP</a>
-    <div class="event-card_rsvp" >
-    ${
-      rsvpCount > 0
-        ? `<i class="fa-solid fa-user-check"></i>
-      <span class="event-card__accent">` +
-          rsvpCount +
-          ` people RSVP'd</span>`
-        : ""
-    }
-    </div>`;
+  ${
+    rsvpCount > 0
+      ? `<div class="event-card_rsvp" >
+          <i class="fa-solid fa-user-check"></i>
+          <span class="event-card__accent">` +
+        rsvpCount +
+        ` people RSVP'd</span>
+        </div>`
+      : ""
+  }`;
 }
 
 function createEventCard(event) {
