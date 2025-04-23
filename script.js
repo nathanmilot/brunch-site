@@ -42,7 +42,7 @@ function createRSVPSection(rsvpLink, date) {
           <i class="fa-solid fa-user-check"></i>
           <span class="event-card__accent">` +
         rsvpCount +
-        ` people RSVP'd</span>
+        ` people (adults & kids) RSVP'd</span>
         </div>`
       : ""
   }`;
