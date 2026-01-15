@@ -84,6 +84,81 @@
         "date": "2025-12-28T10:00",
         "title": "December Monthly Brunch"
       }
+    },
+    {
+      "details": {
+        "date": "2026-01-25T10:00",
+        "title": "January Monthly Brunch"
+      },
+      "description": "Back by popular demand, we're going to continue the monthly brunch! We're so grateful for you all and look forward to having you all in our home again this year.",
+      "menu": ["bagels", "coffee"]
+    },
+    {
+      "details": {
+        "date": "2026-02-22T10:00",
+        "title": "February Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2026-03-29T10:00",
+        "title": "March Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2026-04-26T10:00",
+        "title": "April Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2026-05-31T10:00",
+        "title": "May Monthly Brunch"
+      },
+      "description": "We'll just have had a baby so this month will be canceled or need to be hosted by someone else :)"
+    },
+    {
+      "details": {
+        "date": "2026-06-28T10:00",
+        "title": "June Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2026-07-19T10:00",
+        "title": "July Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2026-08-23T15:00",
+        "title": "August Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2026-09-27T10:00",
+        "title": "September Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2026-10-25T10:00",
+        "title": "October Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2026-11-29T10:00",
+        "title": "November Monthly Brunch"
+      }
+    },
+    {
+      "details": {
+        "date": "2026-12-27T10:00",
+        "title": "December Monthly Brunch"
+      }
     }
   ]
 }
