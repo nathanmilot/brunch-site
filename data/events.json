@@ -95,9 +95,13 @@
     },
     {
       "details": {
-        "date": "2026-02-22T10:00",
+        "date": "2026-03-01T10:00",
         "title": "February Monthly Brunch"
-      }
+      },
+      "description": "Moving to March 1st as we just got back in town from a trip.",
+      "menu": ["milk and cereal bar", "coffee"]
+
+
     },
     {
       "details": {
